@@ -4,14 +4,14 @@
 	text-align: center;
 	width: 100%;
 	background-color: #fff;
+	padding: 30px 0 50px 0;
 	@media screen and (min-width: $tabwidth) {
 		clear: none;
-		width: auto;
 		
 
 	}
 	@media screen and (min-width: $deskwidth) {
-		text-align: left;
+		
 	}
 	.menu {
 		@include transition(all ease 1s);
@@ -34,7 +34,7 @@
 		margin: 0;
 		padding-left: 0;
 		@media screen and (min-width: $tabwidth) {
-			display: flex;
+			display: block;
 		}
 
 		ul {
@@ -96,20 +96,26 @@
 		hyphens: none;
 		padding: 0 ;
 		text-transform: uppercase;
-		font-family: $font-heading;
-		font-weight: 300;
 		width: 100%;
+		font: {
+			weight: 300;
+			family: $font-heading;
+			size: 3vw;
+		}
 		@media screen and (min-width: $tabwidth) {
-			border-left: 1px solid #000;
+			font-size: 1.4vw;
 			line-height: 3;
 			width: auto;
-			// padding: 0 20px;
 			&:first-of-type {
 				border: 0;
 			}
 		}
+		
+		@media screen and (min-width: $midwidth) {
+			font-size: 1.3vw;
+		}
 		@media screen and (min-width: $deskwidth) {
-			// padding: 0 30px;
+			font-size: 1vw;
 		}
 
 		&:hover > a,
@@ -121,7 +127,7 @@
 		// align-items: center;
 		text-decoration: none;
 		padding: 10px 0px;
-		color: #000;
+		color: $color-grey;
 		@include transition(all ease .4s);
 		@media screen and (min-width: $tabwidth) {
 			padding: 0% 20px;
@@ -132,6 +138,26 @@
 		&:hover {
 			background-color: rgba(#fff, 1);
 			color: $color-black;
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			bottom: 0;
+			left: 0;
+			background-color: $color-grey;
+			visibility: hidden;
+			@include transition(.3s ease all);
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+
+		}
+
+		&:hover:before {
+		  visibility: visible;
+		  -webkit-transform: scaleX(1);
+		  transform: scaleX(1);
 		}
 	}
 
@@ -202,5 +228,56 @@ button.menu-toggle {
 		float: right;
 		text-align: right;
 		width: 50%;
+	}
+}
+.top-menu {
+	width: 100%;
+	text-align: center;
+	padding: 20px 0 0 0;
+	@media screen and (min-width: $tabwidth) { 
+		text-align: right;
+	}
+	a {
+		color: $color-grey;
+		padding: 10px 20px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			bottom: 0;
+			left: 0;
+			background-color: $color-grey;
+			visibility: hidden;
+			@include transition(.3s ease all);
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+
+		}
+
+		&:hover:before {
+		  visibility: visible;
+		  -webkit-transform: scaleX(1);
+		  transform: scaleX(1);
+		}
+	}
+	li {
+		width: auto;
+		display: inline-block;
+		font-size: 1vw;
+		position: relative;
+		@media screen and (min-width: $tabwidth) {
+			font-size: 1.4vw;
+		}
+		@media screen and (min-width: $midwidth) {
+			font-size: 1.2vw;
+		}
+		@media screen and (min-width: $deskwidth) {
+			font-size: 1vw;
+		}
+	}
+	ul {
+		list-style: none;
 	}
 }

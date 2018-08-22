@@ -37,6 +37,7 @@ function acstarter_setup() {
   // This theme uses wp_nav_menu() in one location.
   register_nav_menus( array(
     'primary' => esc_html__( 'Primary', 'acstarter' ),
+    'top' => esc_html__( 'Top Nav', 'acstarter' ),
     'sitemap' => esc_html__( 'Sitemap', 'acstarter' ),
   ) );
 

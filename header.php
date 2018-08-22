@@ -29,6 +29,9 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'acstarter' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
+		<div class="top-menu">
+			<?php wp_nav_menu( array( 'theme_location' => 'top' )); ?>
+		</div>		
 		<div class="wrapper">
 			
 			<?php if(is_home()) { ?>
@@ -52,4 +55,4 @@
 	</div><!-- wrapper -->
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content wrapper">
+	<div id="content" class="site-content ">
