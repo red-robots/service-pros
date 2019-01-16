@@ -669,3 +669,25 @@ body.is_safari {
 		text-shadow: none;
 	}
 }
+.default-temp {
+	.entry-header {
+		text-align: center;
+		color: $color-blue-text;
+	}
+	.entry-header h1 {
+		font-size: 25px;
+		color: $color-blue-text;
+		font-weight: 700;
+	}
+	.entry-content {
+		color: $color-light-grey;
+		font-weight: 300;
+		h1,h2,h3,h4,h5,h6 {
+			color: $color-blue-text;
+			font-weight: 700;
+			margin: 15px 0 10px;
+			line-height: 1.4;
+		}
+	}
+	
+}

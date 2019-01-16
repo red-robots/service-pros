@@ -1943,6 +1943,10 @@ input.button:hover,.gform_wrapper .gform_footer input[type=submit]:hover{backgro
 .steps-wrapper .number span{font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-size:110px;font-weight:bold;-webkit-font-smoothing:antialiased;text-shadow:-1px -1px 0 #0079b5,1px -1px 0 #0079b5,-1px 1px 0 #0079b5,1px 1px 0 #0079b5;color:#FFF}
 .steps-wrapper .desc{color:#a3a3a3;font-weight:300;font-size:14px}
 body.is_chrome .steps-wrapper .number span,body.is_safari .steps-wrapper .number span{-webkit-text-fill-color:white;-webkit-text-stroke:2px #0079b5;text-shadow:none}
+.default-temp .entry-header{text-align:center;color:#0079b5}
+.default-temp .entry-header h1{font-size:25px;color:#0079b5;font-weight:700}
+.default-temp .entry-content{color:#a3a3a3;font-weight:300}
+.default-temp .entry-content h1,.default-temp .entry-content h2,.default-temp .entry-content h3,.default-temp .entry-content h4,.default-temp .entry-content h5,.default-temp .entry-content h6{color:#0079b5;font-weight:700;margin:15px 0 10px;line-height:1.4}
 .blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}
