@@ -26,6 +26,11 @@
 	clear: both;
 	margin: 0 0 1.5em;
 }
+
+.default-temp {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
 section.home-boxes {
 	width: 100%;
 	display: flex;
@@ -110,10 +115,11 @@ section.home-boxes {
 		.textwrap {
 			padding: 15% 10%;
 			color: #FFF;
-			font-size: 25px;
+			font-size: 24px;
 			font-weight: 500;
 			font-style: italic;
 			text-align: center;
+			line-height: 1.3;
 			@media screen and (min-width: $tabwidth) {
 				position: relative;
 				top: 50%;
@@ -123,6 +129,10 @@ section.home-boxes {
 			}
 			@media screen and (min-width: $deskwidth) {
 				font-size: 35px;
+			}
+			&.darkbg {
+				padding: 5% 15%;
+				background: rgba(6,13,33,0.8);
 			}
 		}
 	}
@@ -138,7 +148,7 @@ section.home-boxes {
 		p {
 			margin-top: 0;
 		}
-		h2 {
+		h2,h3 {
 			margin: 0 0 5px;
 			font-size: 22px;
 			font-weight: 700;
@@ -151,6 +161,26 @@ section.home-boxes {
 			li {
 				position: relative;
 				margin-bottom: 22px;
+			}
+		}
+	}
+	.column2.bullets-normal {
+		ul {
+			margin-bottom: 30px;
+		}
+		ul li {
+			padding-left: 15px;
+			margin-bottom: 10px;
+			&:before {
+				content:"";
+				display: block;
+				width: 6px;
+				height: 6px;
+				border-radius: 100px;
+				background: #FFF;
+				position: absolute;
+				left: 0;
+				top: 8px;
 			}
 		}
 	}
@@ -532,6 +562,110 @@ section.home-boxes {
 
 }
 
+.section-main-content {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
 
+h1.entry-title {
+	font-size: 25px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
 
+.gform_wrapper select {
+	height: 36px;
+	line-height: 36px;
+	margin: 0 0 5px!important;
+}
+input.button, .gform_wrapper .gform_footer input[type=submit] {
+	background: $color-blue;
+	box-shadow: none;
+	-webkit-appearance: none;
+	border-radius: 0;
+	border: none;
+	text-shadow: none;
+	color: #FFF;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 12px 25px;
+	@include transition(all ease-out .3s);
+	&:hover {
+		background: $color-dark-blue;
+	}
+}
+.site-content .gform_wrapper .gform_footer {
+	margin: 10px 0 0;
+}
+.content-centered {
+	text-align: center;
+	max-width: 800px;
+	width: 90%;
+	margin: 0 auto;
+	color: $color-light-grey;
+	font-weight: 300;
+	h1,h2,h3 {
+		font-size: 25px;
+		line-height: 1.4;
+		margin: 0 0 10px;
+	}
+	h1,h2,h3,h4,h5,h6 {
+		font-weight: 700;
+		color: $color-blue-text;
+	}
+}
 
+.steps-wrapper {
+	padding-top: 15px;
+	padding-bottom: 25px;
+	@media screen and (min-width: $tabwidth) {
+		@include flexbox();
+		@include flexbox-wrap(wrap);
+		@include flexbox-align-content(center);
+		@include flexbox-justify(center);
+		margin-left: -25px;
+		margin-right: -25px;
+	}
+	.step {
+		box-sizing: border-box;
+		font-size: 15px;
+		padding-left: 25px;
+		padding-right: 25px;
+		@media screen and (min-width: $tabwidth) {
+			width: 25%;
+			float: left;
+
+		}
+	}
+	.title {
+		color: $color-blue-text;
+		margin: 0 0;
+		font-weight: 600;
+		font-size: 15px;
+	}
+	.number {
+		text-align: center;
+	}
+	.number span {
+		font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
+		font-size: 110px;
+		font-weight: bold;
+		-webkit-font-smoothing: antialiased;
+		text-shadow: -1px -1px 0 $color-blue-text,  1px -1px 0 $color-blue-text, -1px 1px 0 $color-blue-text, 1px 1px 0 $color-blue-text;
+		color: #FFF;
+	}
+	.desc {
+		color: $color-light-grey;
+		font-weight: 300;
+		font-size: 14px;
+
+	}
+}
+body.is_chrome,
+body.is_safari {
+	.steps-wrapper .number span {
+		-webkit-text-fill-color: white;
+		-webkit-text-stroke: 2px $color-blue-text;
+		text-shadow: none;
+	}
+}
