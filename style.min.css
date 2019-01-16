@@ -1964,6 +1964,11 @@ body.is_chrome .steps-wrapper .number span,body.is_safari .steps-wrapper .number
 }@media screen and (min-width:1200px){.services-wrapper .link span{font-size:25px}
 }.services-wrapper .service:hover .link{background:#0868a2}
 .services-wrapper .service:hover img,.services-wrapper .service:hover .bgimage{-webkit-transform:scale(1.2);-ms-transform:scale(1.2);transform:scale(1.2)}
+.error404 .full-content-area{padding-bottom:60px}
+.page-link-list{text-align:center}
+.linklist{display:inline-block;margin:0;padding:0;list-style:none;text-align:left}
+.linklist li{position:relative;padding-left:13px}
+.linklist li:before{content:'';display:block;width:6px;height:6px;background:#0868a2;border-radius:200px;position:absolute;top:9px;left:0}
 .blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}

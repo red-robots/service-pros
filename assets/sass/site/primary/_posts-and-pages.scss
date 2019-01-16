@@ -792,3 +792,31 @@ body.is_safari {
 		}
 	}
 }
+.error404 .full-content-area {
+	padding-bottom: 60px;
+}
+.page-link-list {
+	text-align: center;
+}
+.linklist {
+	display: inline-block;
+	margin: 0 0;
+	padding: 0 0;
+	list-style: none;
+	text-align: left;
+	li {
+		position: relative;
+		padding-left: 13px;
+		&:before {
+			content: '';
+			display: block;
+			width: 6px;
+			height: 6px;
+			background: $color-blue;
+			border-radius: 200px;
+			position: absolute;
+			top: 9px;
+			left: 0;
+		}
+	}
+}
