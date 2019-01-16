@@ -16,19 +16,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 <script defer src="<?php bloginfo( 'template_url' ); ?>/assets/svg-with-js/js/fontawesome-all.js"></script>
-
-
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="page" class="site clear">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'acstarter' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header clear" role="banner">
 		<div class="top-menu">
 			<?php wp_nav_menu( array( 'theme_location' => 'top' )); ?>
 		</div>		
@@ -55,4 +52,9 @@
 	</div><!-- wrapper -->
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content ">
+	<?php if(!is_home()) { ?>
+		<?php get_template_part('template-parts/banner'); ?>
+	<?php } ?>
+
+
+	<div id="content" class="site-content clear">
