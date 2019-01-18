@@ -1939,7 +1939,7 @@ section.home-boxes .box:hover{box-shadow:0 0 27px 6px rgba(0,0,0,0.1)}
 }.section-main-content .formdiv.no-copy{max-width:800px;width:100%;margin:0 auto;float:none}
 .section-main-content .copydiv{background:#0868a2;color:#FFF}
 @media screen and (min-width:900px){.section-main-content .copydiv{position:absolute;top:0;left:0;height:100%}
-}.section-main-content .copydiv .inside{padding:10% 15%;font-size:22px;text-align:center;line-height:1.3}
+}.section-main-content .copydiv .inside{padding:10% 15%;font-size:22px;font-weight:500;font-style:italic;text-align:center;line-height:1.3}
 @media screen and (min-width:600px){.section-main-content .copydiv .inside{padding:5% 15%;font-size:30px}
 }@media screen and (min-width:900px){.section-main-content .copydiv .inside{font-size:35px;position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
 }.section-main-content .formtitle{text-transform:uppercase;margin:0 0 20px;font-size:22px}
