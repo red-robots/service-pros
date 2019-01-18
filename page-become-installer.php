@@ -42,7 +42,7 @@ get_header(); ?>
 
 				<?php if(do_shortcode($form_shortcode)) { ?>
 
-					<div class="formdiv <?php echo ($has_content) ? 'has-copy':'no-copy';?>">
+					<div class="formdiv <?php echo ($has_content) ? 'has-copy':'no-copy clear';?>">
 						<div class="inside clear">
 							<?php if( $form_title ) { ?>
 								<h3 class="formtitle"><?php echo $form_title; ?></h3>

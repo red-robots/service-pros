@@ -571,12 +571,23 @@ section.home-boxes {
 		}
 		.inside {
 			box-sizing: border-box;
-			padding: 10% 10% 8%;
+			padding: 6% 10% 8%;
+			@media screen and (min-width: $midwidth) {
+				padding: 10% 10% 8%;
+			}
 		}
 	}
 	.formdiv {
 		background: #FFF;
-		float: right;
+		@media screen and (min-width: $midwidth) {
+			float: right;
+		}
+		&.no-copy {
+			max-width: 800px;
+			width: 100%;
+			margin: 0 auto;
+			float: none;
+		}
 	}
 	.copydiv {
 		background: $color-blue;
@@ -640,6 +651,8 @@ input.button, .gform_wrapper .gform_footer input[type=submit] {
 }
 .site-content .gform_wrapper .gform_footer {
 	margin: 10px 0 0;
+	padding: 15px 0 0;
+
 }
 .content-centered {
 	text-align: center;

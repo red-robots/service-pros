@@ -1932,8 +1932,11 @@ section.home-boxes .box:hover{box-shadow:0 0 27px 6px rgba(0,0,0,0.1)}
 }.section-main-content{position:relative}
 .section-main-content .copydiv,.section-main-content .formdiv{width:100%}
 @media screen and (min-width:900px){.section-main-content .copydiv,.section-main-content .formdiv{width:50%}
-}.section-main-content .copydiv .inside,.section-main-content .formdiv .inside{box-sizing:border-box;padding:10% 10% 8%}
-.section-main-content .formdiv{background:#FFF;float:right}
+}.section-main-content .copydiv .inside,.section-main-content .formdiv .inside{box-sizing:border-box;padding:6% 10% 8%}
+@media screen and (min-width:900px){.section-main-content .copydiv .inside,.section-main-content .formdiv .inside{padding:10% 10% 8%}
+}.section-main-content .formdiv{background:#FFF}
+@media screen and (min-width:900px){.section-main-content .formdiv{float:right}
+}.section-main-content .formdiv.no-copy{max-width:800px;width:100%;margin:0 auto;float:none}
 .section-main-content .copydiv{background:#0868a2;color:#FFF}
 @media screen and (min-width:900px){.section-main-content .copydiv{position:absolute;top:0;left:0;height:100%}
 }.section-main-content .copydiv .inside{padding:10% 15%;font-size:22px;text-align:center;line-height:1.3}
@@ -1944,7 +1947,7 @@ h1.entry-title{font-size:25px;font-weight:700;text-transform:uppercase}
 .gform_wrapper select{height:36px;line-height:36px;margin:0 0 5px !important}
 input.button,.gform_wrapper .gform_footer input[type=submit]{background:#0868a2;box-shadow:none;-webkit-appearance:none;border-radius:0;border:0;text-shadow:none;color:#FFF;font-weight:600;text-transform:uppercase;padding:12px 25px;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
 input.button:hover,.gform_wrapper .gform_footer input[type=submit]:hover{background:#28406e}
-.site-content .gform_wrapper .gform_footer{margin:10px 0 0}
+.site-content .gform_wrapper .gform_footer{margin:10px 0 0;padding:15px 0 0}
 .content-centered{text-align:center;max-width:800px;width:90%;margin:0 auto;color:#a3a3a3;font-weight:300}
 .content-centered h1,.content-centered h2,.content-centered h3{font-size:25px;line-height:1.4;margin:0 0 10px}
 .content-centered h1,.content-centered h2,.content-centered h3,.content-centered h4,.content-centered h5,.content-centered h6{font-weight:700;color:#0079b5}
