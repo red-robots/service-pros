@@ -82,8 +82,8 @@ jQuery(document).ready(function ($) {
 	new WOW().init();
 
 	$('.clickdiv').on("click",function(){
-		var url = $(this).attr('data-url');
-		window.location.href = url;
+		var page_url = $(this).attr('data-url');
+		window.open(page_url, '_blank');
 	});
 
 });// END #####################################    END

@@ -1,107 +1,139 @@
 <?php 
 /* Custom Post Types */
 
-add_action('init', 'js_custom_init');
-function js_custom_init() 
-{
-	
-  // Register the Homepage Services
+add_action('init', 'js_custom_init', 1);
+function js_custom_init() {
+    $post_types = array(
+        array(
+            'post_type' => 'team',
+            'menu_name' => 'Team',
+            'plural'    => 'Team',
+            'single'    => 'Team',
+            'menu_icon' => 'dashicons-groups',
+            'supports'  => array('title','editor')
+        ),
+        array(
+            'post_type' => 'service',
+            'menu_name' => 'Services',
+            'plural'    => 'Services',
+            'single'    => 'Service',
+            'supports'  => array('title','editor','thumbnail')
+        ),
+        array(
+            'post_type' => 'career',
+            'menu_name' => 'Careers',
+            'plural'    => 'Careers',
+            'single'    => 'Career',
+            'supports'  => array('title','editor','thumbnail')
+        ),
+        array(
+            'post_type' => 'testimonial',
+            'menu_name' => 'Testimonials',
+            'plural'    => 'Testimonials',
+            'single'    => 'Testimonial',
+            'supports'  => array('title','editor','thumbnail')
+        )
+    );
+    
+    if($post_types) {
+        foreach ($post_types as $p) {
+            $p_type = ( isset($p['post_type']) && $p['post_type'] ) ? $p['post_type'] : ""; 
+            $single_name = ( isset($p['single']) && $p['single'] ) ? $p['single'] : "Custom Post"; 
+            $plural_name = ( isset($p['plural']) && $p['plural'] ) ? $p['plural'] : "Custom Post"; 
+            $menu_name = ( isset($p['menu_name']) && $p['menu_name'] ) ? $p['menu_name'] : $p['plural']; 
+            $menu_icon = ( isset($p['menu_icon']) && $p['menu_icon'] ) ? $p['menu_icon'] : "dashicons-admin-post"; 
+            $supports = ( isset($p['supports']) && $p['supports'] ) ? $p['supports'] : array('title','editor','custom-fields','thumbnail'); 
+            $taxonomies = ( isset($p['taxonomies']) && $p['taxonomies'] ) ? $p['taxonomies'] : array(); 
+            $parent_item_colon = ( isset($p['parent_item_colon']) && $p['parent_item_colon'] ) ? $p['parent_item_colon'] : ""; 
+            $menu_position = ( isset($p['menu_position']) && $p['menu_position'] ) ? $p['menu_position'] : 20; 
+            
+            if($p_type) {
+                
+                $labels = array(
+                    'name' => _x($plural_name, 'post type general name'),
+                    'singular_name' => _x($single_name, 'post type singular name'),
+                    'add_new' => _x('Add New', $single_name),
+                    'add_new_item' => __('Add New ' . $single_name),
+                    'edit_item' => __('Edit ' . $single_name),
+                    'new_item' => __('New ' . $single_name),
+                    'view_item' => __('View ' . $single_name),
+                    'search_items' => __('Search ' . $plural_name),
+                    'not_found' =>  __('No ' . $plural_name . ' found'),
+                    'not_found_in_trash' => __('No ' . $plural_name . ' found in Trash'), 
+                    'parent_item_colon' => $parent_item_colon,
+                    'menu_name' => $menu_name
+                );
+            
+            
+                $args = array(
+                    'labels' => $labels,
+                    'public' => true,
+                    'publicly_queryable' => true,
+                    'show_ui' => true, 
+                    'show_in_menu' => true, 
+                    'query_var' => true,
+                    'rewrite' => true,
+                    'capability_type' => 'post',
+                    'has_archive' => false, 
+                    'hierarchical' => false, // 'false' acts like posts 'true' acts like pages
+                    'menu_position' => $menu_position,
+                    'menu_icon'=> $menu_icon,
+                    'supports' => $supports
+                ); 
+                
+                register_post_type($p_type,$args); // name used in query
+                
+            }
+            
+        }
+    }
+}
 
-  $labels = array(
-    'name' => _x('Services', 'post type general name'),
-    'singular_name' => _x('Service', 'post type singular name'),
-    'add_new' => _x('Add New', 'Service'),
-    'add_new_item' => __('Add New Service'),
-    'edit_item' => __('Edit Services'),
-    'new_item' => __('New Service'),
-    'view_item' => __('View Services'),
-    'search_items' => __('Search Services'),
-    'not_found' =>  __('No Services found'),
-    'not_found_in_trash' => __('No Services found in Trash'), 
-    'parent_item_colon' => '',
-    'menu_name' => 'Services'
-  );
-  $args = array(
-    'labels' => $labels,
-    'public' => true,
-    'publicly_queryable' => true,
-    'show_ui' => true, 
-    'show_in_menu' => true, 
-    'query_var' => true,
-    'rewrite' => true,
-    'capability_type' => 'post',
-    'has_archive' => false, 
-    'hierarchical' => false, // 'false' acts like posts 'true' acts like pages
-    'menu_position' => 20,
-    'supports' => array('title','editor','custom-fields','thumbnail'),
+add_filter( 'manage_posts_columns', 'set_custom_cpt_columns' );
+function set_custom_cpt_columns($columns) {
+    global $wp_query;
+    $query = isset($wp_query->query) ? $wp_query->query : '';
+    $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
+    
+    if($post_type=='team') {
+        unset( $columns['title'] );
+        unset( $columns['date'] );
+        $columns['title'] = __( 'Name', 'acstarter' );
+        $columns['photo'] = __( 'Photo', 'acstarter' );
+        $columns['jobtitle'] = __( 'Job Title', 'acstarter' );
+        $columns['date'] = __( 'Date', 'acstarter' );
+    }
+    
+    return $columns;
+}
 
-  ); 
-  register_post_type('service',$args); // name used in query
+// Add the data to the custom columns for the book post type:
+add_action( 'manage_posts_custom_column' , 'custom_post_column', 10, 2 );
+function custom_post_column( $column, $post_id ) {
+    global $wp_query;
+    $query = isset($wp_query->query) ? $wp_query->query : '';
+    $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
 
-    $labels = array(
-    'name' => _x('Careers', 'post type general name'),
-    'singular_name' => _x('Career', 'post type singular name'),
-    'add_new' => _x('Add New', 'Career'),
-    'add_new_item' => __('Add New Career'),
-    'edit_item' => __('Edit Careers'),
-    'new_item' => __('New Career'),
-    'view_item' => __('View Careers'),
-    'search_items' => __('Search Careers'),
-    'not_found' =>  __('No Careers found'),
-    'not_found_in_trash' => __('No Careers found in Trash'), 
-    'parent_item_colon' => '',
-    'menu_name' => 'Careers'
-  );
-  $args = array(
-    'labels' => $labels,
-    'public' => true,
-    'publicly_queryable' => true,
-    'show_ui' => true, 
-    'show_in_menu' => true, 
-    'query_var' => true,
-    'rewrite' => true,
-    'capability_type' => 'post',
-    'has_archive' => false, 
-    'hierarchical' => false, // 'false' acts like posts 'true' acts like pages
-    'menu_position' => 20,
-    'supports' => array('title','editor','custom-fields','thumbnail'),
+    if($post_type=='team') {
+        switch ( $column ) {
+            case 'photo' :
+                $img = get_field('staff_image',$post_id);
+                $img_src = ($img) ? $img['sizes']['thumbnail'] : '';
+                $the_photo = '<span class="tmphoto" style="display:inline-block;width:50px;height:50px;background:#e2e1e1;text-align:center;">';
+                if($img_src) {
+                   $the_photo .= '<img src="'.$img_src.'" alt="" style="width:100%;height:auto" />';
+                } else {
+                    $the_photo .= '<i class="dashicons dashicons-businessman" style="font-size:33px;position:relative;top:8px;left:-6px;opacity:0.3;"></i>';
+                }
+                $the_photo .= '</span>';
+                echo $the_photo;
+                break;
 
-  ); 
-  register_post_type('career',$args); // name used in query
-
-  $labels = array(
-    'name' => _x('Testimonials', 'post type general name'),
-    'singular_name' => _x('Testimonial', 'post type singular name'),
-    'add_new' => _x('Add New', 'Testimonial'),
-    'add_new_item' => __('Add New Testimonial'),
-    'edit_item' => __('Edit Testimonials'),
-    'new_item' => __('New Testimonial'),
-    'view_item' => __('View Testimonials'),
-    'search_items' => __('Search Testimonials'),
-    'not_found' =>  __('No Testimonials found'),
-    'not_found_in_trash' => __('No Testimonials found in Trash'), 
-    'parent_item_colon' => '',
-    'menu_name' => 'Testimonials'
-  );
-  $args = array(
-    'labels' => $labels,
-    'public' => true,
-    'publicly_queryable' => true,
-    'show_ui' => true, 
-    'show_in_menu' => true, 
-    'query_var' => true,
-    'rewrite' => true,
-    'capability_type' => 'post',
-    'has_archive' => false, 
-    'hierarchical' => false, // 'false' acts like posts 'true' acts like pages
-    'menu_position' => 20,
-    'supports' => array('title','editor','custom-fields','thumbnail'),
-
-  ); 
-  register_post_type('testimonial',$args); // name used in query
-  
-  // Add more between here
-  
-  // and here
-  
-  } // close custom post type
+            case 'jobtitle' :
+                $staff_title = get_field('staff_title',$post_id);
+                echo $staff_title;
+                break;
+        }
+    }
+    
+}

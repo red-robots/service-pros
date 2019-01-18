@@ -117,6 +117,13 @@ section.testimonials {
 		}
 	}
 }
+.site-header {
+	position: relative;
+	padding-bottom: 13px;
+	@media screen and (min-width: $tabwidth) {
+		padding-bottom: 0;
+	}
+}
 .site-footer {
 	width: 100%;
 	clear: both;

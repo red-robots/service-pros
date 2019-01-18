@@ -1,8 +1,6 @@
 <?php
-$postArgs[] = array('id'=>7,'post_type'=>'service');
-$menuName = 'Primary Menu';
-$orderbyNav = true;
-$links = generate_sitemap($menuName,$postArgs,$orderbyNav);
+$post_type_with_categories[] = array('id'=>11,'taxonomy'=>'arttypes');
+$links = generate_sitemap($post_type_with_categories);
 if($links) { ?>
     <div class="page-link-list clear">
         <ul class="linklist">

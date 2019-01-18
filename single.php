@@ -9,27 +9,20 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div id="primary" class="full-content-area wrapper articles-wrapper single-post clear">
+	<main id="main" class="site-main" role="main">
 
-		<?php
-		while ( have_posts() ) : the_post();
+	<?php while ( have_posts() ) : the_post(); ?>
+		<header class="entry-header">
+			<h1 class="entry-title"><?php the_title(); ?></h1>
+		</header>
+		<div class="entry-content"><?php the_content(); ?></div>
+	<?php endwhile;  ?>
 
-			get_template_part( 'template-parts/content', get_post_format() );
+	</main><!-- #main -->
 
-			the_post_navigation();
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	<?php get_sidebar(); ?>
+</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
