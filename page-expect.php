@@ -37,8 +37,9 @@ get_header(); ?>
 				<?php $ctr=1; foreach($steps as $s) { 
 					$step_title = $s['title'];
 					$step_description = $s['description'];
+					$second = $ctr+2;
 					if( $step_title && $step_description ) { ?>
-						<div class="step">
+						<div class="step wow animated fadeInDown" data-wow-delay="0.<?php echo $second?>s">
 							<div class="number"><span><?php echo $ctr; ?></span></div>
 							<div class="desc">
 								<h3 class="title"><?php echo $step_title; ?></h3>

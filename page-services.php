@@ -27,13 +27,13 @@ get_header(); ?>
 					$svc_link = ($sv['service_link']) ? $sv['service_link'] : '#';
 					$svc_image = $sv['service_image']; ?>
 						<?php if($svc_image) { ?>
-						<div class="service clickdiv" data-url="<?php echo $svc_link;?>">
+						<div class="service" data-url="<?php echo $svc_link;?>">
 							<div class="inner clear">
-								<a class="link" href="<?php echo $svc_link;?>" target="_blank">
+								<a class="boxlink" href="<?php echo $svc_link;?>" target="_blank">
 									<span class="service-title"><?php echo $svc_title;?></span>
+									<span class="bgimage" style="background-image:url('<?php echo $svc_image['url'];?>')" ></span>
+									<img src="<?php echo $svc_image['url'];?>" alt="<?php echo $svc_image['title'];?>" />
 								</a>
-								<a class="bgimage" style="background-image:url('<?php echo $svc_image['url'];?>')" href="<?php echo $svc_link;?>" target="_blank"></a>
-								<img src="<?php echo $svc_image['url'];?>" alt="<?php echo $svc_image['title'];?>" />
 							</div>
 						</div>
 						<?php } ?>

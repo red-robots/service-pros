@@ -30,6 +30,15 @@
 .default-temp {
 	padding-top: 50px;
 	padding-bottom: 50px;
+	&.nobanner {
+		padding-top: 0;
+	}
+}
+.text-center {
+	text-align: center;
+}
+a {
+	@include transition(all ease-out .3s);
 }
 section.home-boxes {
 	width: 100%;
@@ -588,15 +597,46 @@ section.home-boxes {
 			margin: 0 auto;
 			float: none;
 		}
+		&.left {
+			@media screen and (min-width: $midwidth) {
+				float: left;
+			}
+		}
 	}
 	.copydiv {
 		background: $color-blue;
 		color: #FFF;
+		@include flexbox();
+		@include flexbox-align-items(center);
+		@include flexbox-justify(center);
 		@media screen and (min-width: $midwidth) {
 			position: absolute;
 			top: 0;
 			left: 0;
 			height: 100%;
+		}
+		.inside {
+			padding: 10% 15%;
+			font-size: 22px;
+			font-weight: 500;
+    		font-style: italic;
+			text-align: center;
+			line-height: 1.3;
+			@media screen and (min-width: $tabwidth) {
+				padding: 5% 15%;
+				font-size: 30px;
+			}
+		}
+	}
+	.copydiv-right {
+		background: $color-blue;
+		color: #FFF;
+		@media screen and (min-width: $midwidth) {
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			width: 50%;
 		}
 		.inside {
 			padding: 10% 15%;
@@ -675,7 +715,7 @@ input.button, .gform_wrapper .gform_footer input[type=submit] {
 }
 
 .steps-wrapper {
-	padding-top: 15px;
+	padding-top: 30px;
 	padding-bottom: 25px;
 	margin-left: -25px;
 	margin-right: -25px;
@@ -686,10 +726,12 @@ input.button, .gform_wrapper .gform_footer input[type=submit] {
 		@include flexbox-justify(center);
 	}
 	.step {
+		cursor: help;
 		box-sizing: border-box;
 		font-size: 15px;
-		padding-left: 25px;
-		padding-right: 25px;
+		padding: 25px;
+		border-radius: 10px;
+		@include transition(all ease-out .3s);
 		@media screen and (min-width: $tabwidth) {
 			width: 25%;
 			float: left;
@@ -704,6 +746,7 @@ input.button, .gform_wrapper .gform_footer input[type=submit] {
 	}
 	.number {
 		text-align: center;
+		@include transition(all ease-out .3s);
 	}
 	.number span {
 		font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
@@ -712,12 +755,13 @@ input.button, .gform_wrapper .gform_footer input[type=submit] {
 		-webkit-font-smoothing: antialiased;
 		text-shadow: -1px -1px 0 $color-blue-text,  1px -1px 0 $color-blue-text, -1px 1px 0 $color-blue-text, 1px 1px 0 $color-blue-text;
 		color: #FFF;
+		@include transition(all ease-out .3s);
 	}
 	.desc {
 		color: $color-light-grey;
 		font-weight: 300;
 		font-size: 14px;
-
+		@include transition(all ease-out .3s);
 	}
 }
 body.is_chrome,
@@ -726,6 +770,12 @@ body.is_safari {
 		-webkit-text-fill-color: white;
 		-webkit-text-stroke: 2px $color-blue-text;
 		text-shadow: none;
+	}
+}
+.steps-wrapper .step:hover {
+	@include box-shadow( 0px 0px 15px 0px rgba(35,134,184,.75) );
+	.number span {
+		-webkit-text-fill-color: $color-blue-text;
 	}
 }
 .default-temp {
@@ -813,7 +863,7 @@ body.is_safari {
 		width: 100%;
 		height: 100%;
 	}
-	.link {
+	.service-title {
 		display: block;
 		width: 100%;
 		position: absolute;
@@ -824,22 +874,19 @@ body.is_safari {
 		color: #FFF;
 		text-align: center;
 		transition: all ease-out .3s;
-		span {
-			display: block;
-			padding: 10px 15px;
-			font-weight: 600;
-			font-size: 18px;
-			text-transform: uppercase;
-			@media screen and (min-width: $tabwidth) {
-				font-size: 20px;
-			}
-			@media screen and (min-width: $deskwidth) {
-				font-size: 25px;
-			}
+		padding: 10px 15px;
+		font-weight: 600;
+		font-size: 18px;
+		text-transform: uppercase;
+		@media screen and (min-width: $tabwidth) {
+			font-size: 20px;
+		}
+		@media screen and (min-width: $deskwidth) {
+			font-size: 25px;
 		}
 	}
-	.service:hover {
-		.link {
+	.boxlink:hover {
+		.service-title {
 			background: $color-blue;
 		}
 		img, .bgimage {
@@ -1041,7 +1088,7 @@ body.is_safari {
 }
 
 .team-page {
-	margin-top: 50px;
+	margin-top: 30px;
 	margin-bottom: 50px;
 }
 
@@ -1051,11 +1098,11 @@ body.is_safari {
 		margin-right: -15px;
 	}
 	.team {
-		margin-bottom: 50px;
+		margin-bottom: 30px;
 		@media screen and (min-width: $tabwidth) {
 			width: 50%;
 			float: left;
-			margin-bottom: 30px;
+			margin-bottom: 40px;
 		}
 		@media screen and (min-width: $midwidth) {
 			width: 25%;
@@ -1090,6 +1137,36 @@ body.is_safari {
 		color: $color-grey;
 		font-weight: 500;
 		font-size: 14px;
+		position: relative;
+		top: -1px;
+	}
+	.staff-contact {
+		margin-top: 2px;
+		a {
+			display: inline-block;
+			border-radius: 100%;
+			border: 1px solid $color-grey;
+			color: $color-grey;
+			font-size: 16px;
+    		margin: 0 3px;
+    		position: relative;
+			width: 25px;
+			height: 25px;
+    		&.email {
+    			font-size: 18px;
+    		}
+    		.icon {
+				position: absolute;
+				font-size: 13px;
+				top: 5px;
+				left: 5px;
+    		}
+    		&:hover {
+    			color: #FFF;
+    			background: $color-grey;
+    			border-color: $color-grey;
+    		}
+		}
 	}
 	.buttondiv {
 		margin-top: 6px;
@@ -1197,4 +1274,12 @@ body.is_safari {
 		color: $color-blue;
 		text-decoration: none;
 	}
+}
+.screen-reader {
+	display: none;
+}
+.text-container {
+	color: #FFF;
+	background: $color-grey;
+	padding: 30px 0 15px;
 }

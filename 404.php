@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="full-content-area clear default-temp">
+	<div id="primary" class="full-content-area clear default-temp nobanner">
 		<main id="main" class="site-main wrapper" role="main">
 
 			<div class="content-centered clear">

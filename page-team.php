@@ -40,22 +40,27 @@ $banner = get_field('banner_image'); ?>
 						<div id="team_<?php the_ID();?>" data-id="<?php the_ID();?>" class="team <?php echo ($photo) ? 'has-photo':'no-photo';?>">
 							<div class="inside clear">
 								<div class="photo">
-									<a href="<?php echo $page_link?>">
 									<?php if($photo) { ?>
 										<img src="<?php echo $photo['url'];?>" alt="<?php echo $photo['title'];?>" />
 									<?php } else { ?>
 										<img src="<?php echo get_bloginfo('template_url')?>/images/nophoto.jpg" alt="" />
 									<?php } ?>
-									</a>
 								</div>
-								<div class="info">
+								<div class="info text-center">
 									<h3 class="staff-name"><?php echo $team_name; ?></h3>
 									<?php if($team_title) { ?>
 									<div class="jobtitle"><?php echo $team_title; ?></div>
 									<?php } ?>
-									<div class="buttondiv">
-										<a href="<?php echo $page_link?>" class="pagelink">View</a>
+									<?php if ($staff_phone || $staff_email) { ?>
+									<div class="staff-contact">
+										<?php if ($staff_phone) { ?>
+											<a class="phone" href="tel:<?php echo format_phone_number($staff_phone); ?>" title="Phone: <?php echo $staff_phone ?>"><i class="icon fas fa-phone" aria-hidden="true"></i><span class="screen-reader"><?php echo $staff_phone ?></span></a>
+										<?php } ?>
+										<?php if ($staff_email) { ?>
+											<a class="email" href="mailto:<?php echo antispambot($staff_email,1); ?>" title="Email: <?php echo antispambot($staff_email); ?>"><i class="icon fas fa-envelope" aria-hidden="true"></i><span class="screen-reader"><?php echo antispambot($staff_email); ?></span></a>
+										<?php } ?>
 									</div>
+									<?php } ?>
 								</div>
 							</div>
 						</div>
