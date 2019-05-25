@@ -203,12 +203,6 @@ function generate_sitemap($menuName='top-menu',$pageWithCats=null,$orderByNavi=n
 
     $new_list = array();
     if($orderByNavi && $menus && $lists) {
-        // foreach($lists as $x_id=>$x_vars) {
-        //     if(in_array($x_id, $navi_order)) {
-        //         print_r($x_vars);
-        //     }
-        // }
-
         foreach($navi_order as $x_id) {
             if( array_key_exists($x_id, $lists) ) {
                 $new_items = $lists[$x_id];
@@ -216,9 +210,11 @@ function generate_sitemap($menuName='top-menu',$pageWithCats=null,$orderByNavi=n
             } 
         }
 
-        foreach($lists as $k_id=>$k_vars) {
-            if( !in_array($k_id, $orderByNavi) ) {
-                $new_list[$k_id] = $k_vars;
+        if($lists) {
+            foreach($lists as $k_id=>$k_vars) {
+                if( !in_array($k_id, $menu_orders) ) {
+                    $new_list[$k_id] = $k_vars;
+                }
             }
         }
     }

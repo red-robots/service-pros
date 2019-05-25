@@ -1,7 +1,8 @@
 <?php
-$postArgs[] = array('id'=>7,'post_type'=>'service');
+//$postArgs[] = array('id'=>7,'post_type'=>'service');
+$postArgs = '';
 $menuName = 'Primary Menu';
-$orderbyNav = true;
+$orderbyNav = false;
 $links = generate_sitemap($menuName,$postArgs,$orderbyNav);
 if($links) { ?>
     <div class="page-link-list clear">
