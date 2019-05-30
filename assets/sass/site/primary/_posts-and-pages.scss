@@ -1283,3 +1283,452 @@ body.is_safari {
 	background: $color-grey;
 	padding: 30px 0 15px;
 }
+h1.pagetoptitle {
+	display: inline-block;
+	z-index: 10;
+	font-size: 30px;
+	line-height: 1.2;
+	color: #FFF;
+	background: #184d7c;
+	margin: 0 0;
+	padding: 10px 45px 10px 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	&:before {
+		content:"";
+		display: block;
+		width: 113%;
+		height: 100%;
+		-webkit-transform: skew(-20deg); 
+		-moz-transform: skew(-20deg); 
+		-o-transform: skew(-20deg);
+		transform: skew(-20deg);
+		position: absolute;
+		top: 0;
+		left: -15px;
+		background: rgb(0,110,201);
+		background: -moz-linear-gradient(-45deg, rgba(0,110,201,1) 0%, rgba(0,137,206,1) 35%, rgba(40,60,104,1) 87%);
+		background: -webkit-linear-gradient(-45deg, rgba(0,110,201,1) 0%,rgba(0,137,206,1) 35%,rgba(40,60,104,1) 87%);
+		background: linear-gradient(135deg, rgba(0,110,201,1) 0%,rgba(0,137,206,1) 35%,rgba(40,60,104,1) 87%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006ec9', endColorstr='#283c68',GradientType=1 );
+	}
+	span {
+		font-style: italic;
+		font-weight: bold;
+		text-transform: uppercase;
+		position: relative;
+		z-index: 5;
+	}
+}
+.aboutContent {
+	color: $color-grey;
+}
+.pp-intro-text {
+	font-size: 25px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: $color-blue-text;
+	.wrapper {
+		padding: 20px 20px;
+		@media screen and (min-width: $tabwidth) {
+			padding: 2em 7em 1em;
+		}
+	}
+}
+
+.flexrow {
+	position: relative;
+	@include flexbox();
+	@include flexbox-wrap(wrap);
+	@include flexbox-direction(row);
+	.fbox {
+		box-sizing: border-box;
+		position: relative;
+	}
+}
+.pp-row2 {
+	.flexrow {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+	.fbox {
+		width: 100%;
+		@media screen and (min-width: $tabwidth) {
+			width: 50%;
+		}
+	}
+	.inside {
+		padding: 20px 20px;
+	}
+	h3 {
+		margin: 0 0 8px;
+		font-size: 18px;
+		line-height: 1.3;
+		color: $color-blue-text;
+		text-transform: uppercase;
+		text-align: center;
+		@media screen and (min-width: $tabwidth) {
+			text-align: left;
+		}
+	}
+}
+
+.pp-row3 {
+	margin-top: 20px;
+	padding-bottom: 20px;
+	h3.title {
+		margin: 5px 0 15px;
+		font-size: 18px;
+		line-height: 1.3;
+		color: $color-blue-text;
+		text-transform: uppercase;
+		position: relative;
+		text-align: center;
+		width: 100%;
+		@media screen and (min-width: $tabwidth) {
+			@include flexbox();
+			@include flexbox-align-items(center);
+			text-align: left;
+		}
+		span {
+			background: #FFF;
+		}
+		@media screen and (min-width: $tabwidth) {
+			&:after {
+				content:"";
+				display: inline-block;
+				width: 100%;
+				height: 1px;
+				background: #a8a8aa;
+			}
+			span {
+				position: absolute;
+				z-index: 5;
+				padding-right: 12px;
+			}
+		}
+	}
+}
+.values-info {
+	width: 100%;
+	float: left;
+	.flexrow {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+	.vbox {
+		width: 100%;
+		margin: 0 0;
+		@media screen and (min-width: $tabwidth) {
+			margin: 0 0;
+			width: 25%;
+		}
+	}
+	.vinside {
+		padding: 20px;
+	}
+	.icon {
+		text-align: center;
+		.image {
+			display: inline-block;
+			width: 90px;
+			height: 90px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			@media screen and (min-width: $tabwidth) {
+				width: 100px;
+				height: 100px;
+			}
+			@media screen and (min-width: $midwidth) {
+				width: 135px;
+				height: 135px;
+			}
+		}
+	}
+	.vtitle {
+		color: $color-blue-text;
+		margin-bottom: 5px;
+		text-align: center;
+		@media screen and (min-width: $tabwidth) {
+			text-align: left;
+		}
+	}
+}
+.timeline-section {
+	position: relative;
+	background-size: cover;
+	background-color: #026da2;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-top: 5%;
+	padding-bottom: 10%;
+	@media screen and (min-width: $deskwidth) {
+		padding-bottom: 0;
+	}
+	.sctitle {
+		margin: 0 0 10px;
+		text-transform: uppercase;
+		font-size: 20px;
+		line-height: 1.3;
+	}
+	.timelines-wrap {
+		position: relative;
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 25px;
+		@media screen and (min-width: $midwidth) {
+			padding-top: 16%;
+			padding-bottom: 18%;
+			padding-left: 0;
+		}
+		&:before {
+			content:"";
+			display: block;
+			width: 1px;
+			height: 100%;
+			background: #FFF;
+			position: absolute;
+			top: 12px;
+			left: 0;
+			@media screen and (min-width: $midwidth) {
+				display: none;
+			}
+		}
+	}
+	.hline {
+		@media screen and (min-width: $midwidth) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			@include flexbox();
+			@include flexbox-align-items(center);
+			.line {
+				display: inline-block;
+				width: 100%;
+				height: 1px; 
+				background-color: #FFF;
+				position: relative;
+				&:before, &:after {
+					content:"";
+					display: block;
+					width: 1px;
+					height: 16px;
+					background: #FFF;
+					position: absolute;
+					bottom: -7px;
+				}
+				&:before {
+					left: 0;
+				}
+				&:after {
+					right: 0;
+				}
+			}
+		}
+	}
+	.noflexrow,
+	.flexrow {
+		position: relative;
+		z-index: 10;
+	}
+	.overlay {
+		width: 100%;
+		height: 100%;
+		background: rgba(0,120,180,.93);
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.wrapper {
+		position: relative;
+		z-index: 5;
+		color: #FFF;
+	}
+	.timeline_date {
+		font-weight: bold;
+		&:before {
+			content:"";
+			display: block;
+			width: 20px;
+			height: 1px;
+			background: #FFF;
+			position: absolute;
+			top: 12px;
+			left: -25px;
+			@media screen and (min-width: $midwidth) {
+				display: none;
+			}
+		}
+	}
+	.timeline_info {
+		font-size: 13px;
+		font-weight: 300;
+	}
+	.timeline {
+		position: relative;
+		margin-bottom: 25px;
+		@include flexbox();
+		@include flexbox-align-content(flex-end);
+		@include flexbox-align-items(flex-end);
+		@media screen and (min-width: $midwidth) {
+			width: 22%;
+			float: left;
+			margin-bottom: 0;
+			&.even {
+				padding-left: 3%;
+				padding-bottom: 10.5%;
+				.tmwrap {
+					position: absolute;
+					bottom: 40%;
+					padding-right: 15%;
+				}
+				.tmwrap:after {
+					content:"";
+					display: block;
+					width: 1px;
+					background: #FFF;
+					position: relative;
+				}
+			}
+			&.odd {
+				padding-right: 8%;
+				position: absolute;
+				top: 60%;
+				&:before {
+					content:"";
+					display: block;
+					width: 1px;
+					background: #FFF;
+					position: absolute;
+					top: 0;
+				}
+			}
+			&.col2 {
+				.tmwrap {
+					&:after {
+						height: 30px;
+					}
+				}
+			}
+			&.col4 {
+				margin-left: 2%;
+				.tmwrap {
+					&:after {
+						height: 60px;
+					}
+				}
+			}
+			&.col6 {
+				margin-left: 8%;
+				.tmwrap {
+					&:after {
+						height: 30px;
+					}
+				}
+			}
+			&.col8 {
+				.tmwrap {
+					&:after {
+						height: 60px;
+					}
+				}
+			}
+			&.col1 {
+				top: 50%;
+				padding-top: 30px;
+				&:before {
+					height: 30px;
+				}
+			}
+			&.col3 {
+				left: 20%;
+				padding-top: 60px;
+				&:before {
+					height: 60px;
+				}
+			}
+			&.col5 {
+				left: 40%;
+				padding-top: 30px;
+				&:before {
+					height: 30px;
+				}
+			}
+			&.col7 {
+				left: 65%;
+				padding-top: 60px;
+				&:before {
+					height: 60px;
+				}
+			}
+			&.col9 {
+				left: 85%;
+				padding-top: 30px;
+				&:before {
+					height: 30px;
+				}
+			}
+			
+		}
+	}
+	.timeline:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.partnership-section {
+	.flexbox {
+		position: relative;
+		min-height: 22em;
+		@media screen and (min-width: $tabwidth) {
+			width: 50%;
+		}
+	}
+	.imagediv {
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: #333;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.intro {
+		position: relative;
+		z-index: 10;
+		box-sizing: border-box;
+		padding: 10% 10%;
+		font-size: 1.5em;
+		font-weight: bold;
+		font-style: italic;
+		line-height: 1.5;
+		background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+		background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+		color: #FFF;
+	}
+	
+	.inside {
+		box-sizing: border-box;
+		height: 100%;
+		padding: 5% 10%;
+		@media screen and (min-width: $tabwidth) {
+			padding: 8% 10%;
+		}
+		@include flexbox();
+		@include flexbox-align-items(center);
+		strong {
+			color: $color-blue-text;
+		}
+		ul {
+			margin-left: 10px;
+		}
+	}
+}
