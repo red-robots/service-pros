@@ -135,21 +135,23 @@ get_header(); ?>
 			?>
 
 			<section class="pp-row5 partnership-section">
-				<div class="flexrow clear">
-					<div class="imagecol flexbox">
-						<?php if ($section_3_image) { ?>
-							<div class="imagediv" style="background-image:url('<?php echo $section_3_image['url'];?>')"></div>
-						<?php } ?>
-						<?php if ($section_3_introduction) { ?>
-							<div class="intro"><?php echo $section_3_introduction ?></div>
-						<?php } ?>
-					</div>
-					<div class="textcol flexbox">
-						<?php if ($section_3_description) { ?>
-							<div class="inside">
-								<div class="text"><?php echo $section_3_description ?></div>
-							</div>
-						<?php } ?>
+				<div class="outerwrap">
+					<div class="flexrow">
+						<div class="imagecol flexbox">
+							<?php if ($section_3_image) { ?>
+								<div class="imagediv" style="background-image:url('<?php echo $section_3_image['url'];?>')"></div>
+							<?php } ?>
+							<?php if ($section_3_introduction) { ?>
+								<div class="intro"><?php echo $section_3_introduction ?></div>
+							<?php } ?>
+						</div>
+						<div class="textcol flexbox">
+							<?php if ($section_3_description) { ?>
+								<div class="inside">
+									<div class="text"><?php echo $section_3_description ?></div>
+								</div>
+							<?php } ?>
+						</div>
 					</div>
 				</div>
 			</section>

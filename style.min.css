@@ -2141,6 +2141,7 @@ h1.pagetoptitle span{font-style:italic;font-weight:bold;text-transform:uppercase
 .timeline-section .timeline.col9{left:85%;padding-top:30px}
 .timeline-section .timeline.col9:before{height:30px}
 }.timeline-section .timeline:last-child{margin-bottom:0}
+.partnership-section .outerwrap{width:100%;float:left}
 .partnership-section .flexbox{position:relative;min-height:22em}
 @media screen and (min-width:600px){.partnership-section .flexbox{width:50%}
 }.partnership-section .imagediv{width:100%;height:100%;background-size:cover;background-repeat:no-repeat;background-position:center;background-color:#333;position:absolute;top:0;left:0}

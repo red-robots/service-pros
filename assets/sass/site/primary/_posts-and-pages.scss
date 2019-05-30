@@ -1681,6 +1681,10 @@ h1.pagetoptitle {
 }
 
 .partnership-section {
+	.outerwrap {
+		width: 100%;
+		float: left;
+	}
 	.flexbox {
 		position: relative;
 		min-height: 22em;
