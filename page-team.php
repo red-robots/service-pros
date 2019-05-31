@@ -10,9 +10,13 @@ $banner = get_field('banner_image'); ?>
 		<main id="main" class="site-main clear" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php if( get_the_content() ) { ?>
+
+					<?php if (!$banner) { ?>
 					<header class="entry-header">
 						<h1 class="entry-title"><?php the_title();?></h1>
 					</header>
+					<?php } ?>
+					
 					<div class="entry-content">
 						<?php the_content();?>
 					</div>

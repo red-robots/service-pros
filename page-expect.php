@@ -8,9 +8,12 @@ get_header(); ?>
 
 	<div id="primary" class="full-content-area clear default-temp">
 		<?php while ( have_posts() ) : the_post(); ?>
+
+			<?php if ( get_the_content() ) { ?>
 			<div class="content-centered clear">
 				<?php the_content(); ?>
 			</div>
+			<?php } ?>
 
 
 			<?php
