@@ -24,24 +24,25 @@ $banner = get_field('banner_image'); ?>
 			<?php endwhile; ?>
 
 			<?php
-			$args = array(
-				'posts_per_page'   => -1,
-				'post_type'        => 'team',
-				'post_status'      => 'publish'
-			);
-			$items = new WP_Query($args);
-			if ( $items->have_posts() ) { ?>
+			$team_lists = get_the_teams();
+			if($team_lists) { ?>
 			<div class="team-list clear wrapper">
-				<div class="row clear flex-container">
-					<?php while ( $items->have_posts() ) : $items->the_post();
-						$team_name = get_the_title();
-						$photo = get_field('staff_image'); 
-						$team_title = get_field('staff_title'); 
-						$staff_phone = get_field('staff_phone'); 
-						$staff_email = get_field('staff_email'); 
-						$page_link = get_permalink();
-						?>
-						<div id="team_<?php the_ID();?>" data-id="<?php the_ID();?>" class="team <?php echo ($photo) ? 'has-photo':'no-photo';?>">
+				<?php foreach($team_lists as $obj) { 
+                $category = $obj['term_name'];
+                $members = $obj['members']; ?>
+                <div class="team-group clear">
+                	<h2 class="teamcat"><span><?php echo $category ?></span></h2>
+                	<div class="row clear flex-container">
+                	<?php foreach($members as $m) { 
+                    $postId = $m->post_id; 
+                    $team_name = $m->post_title; 
+                    $photo = get_field('staff_image',$postId); 
+					$team_title = get_field('staff_title',$postId); 
+					$staff_phone = get_field('staff_phone',$postId); 
+					$staff_email = get_field('staff_email',$postId); 
+					$page_link = get_permalink($postId);
+                    ?>
+                    	<div id="team_<?php the_ID();?>" data-id="<?php the_ID();?>" class="team <?php echo ($photo) ? 'has-photo':'no-photo';?>">
 							<div class="inside clear">
 								<div class="photo">
 									<?php if($photo) { ?>
@@ -68,8 +69,12 @@ $banner = get_field('banner_image'); ?>
 								</div>
 							</div>
 						</div>
-					<?php endwhile; wp_reset_postdata(); ?>
-				</div>
+                    <?php } ?>
+                	</div>
+
+                </div>
+
+            	<?php } ?>
 			</div>
 			<?php } ?>
 		</main><!-- #main -->

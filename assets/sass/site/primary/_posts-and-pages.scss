@@ -1098,11 +1098,10 @@ body.is_safari {
 		margin-right: -15px;
 	}
 	.team {
-		margin-bottom: 30px;
+		margin: 15px 0;
 		@media screen and (min-width: $tabwidth) {
 			width: 50%;
 			float: left;
-			margin-bottom: 40px;
 		}
 		@media screen and (min-width: $midwidth) {
 			width: 25%;
@@ -1120,7 +1119,7 @@ body.is_safari {
 		float: left;
 	}
 	.photo {
-		border: 1px solid $color-subtle-grey;
+		// border: 1px solid $color-subtle-grey;
 		margin-bottom: 10px;
 	}
 	img {
@@ -1734,5 +1733,36 @@ h1.pagetoptitle {
 		ul {
 			margin-left: 10px;
 		}
+	}
+}
+
+.team-group {
+	margin: 0 0 10px;
+}
+
+h2.teamcat {
+	color: $color-blue-text;
+	margin: 0 0 20px;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1.3;
+	position: relative;
+	text-align: center;
+	span {
+		display: inline-block;
+		position: relative;
+		background: #FFF;
+		padding: 0 15px;
+		z-index: 5;
+	}
+	&:after {
+		content:"";
+		display: block;
+		width: 100%;
+		height: 1px;
+		background: $color-blue-text;
+		position: absolute;
+		top: 50%;
+		left: 0;
 	}
 }

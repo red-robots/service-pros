@@ -256,3 +256,31 @@ add_filter("gform_init_scripts_footer", "init_scripts");
 function init_scripts() {
     return true;
 }
+
+
+function get_the_teams() {
+    global $wpdb;
+    $taxonomy = 'team_categories';
+    $post_type = 'team';
+    $tax_terms = get_terms($taxonomy, array('hide_empty' => false));
+    $prefix = $wpdb->prefix;
+    $records = array();
+    if($tax_terms) {
+        foreach($tax_terms as $t) {
+            $term_id = $t->term_id;
+            $term_name = $t->name;
+            $query = "SELECT rel.term_taxonomy_id as term_id,p.ID as post_id,p.post_title FROM ".$prefix."term_relationships as rel,".$prefix."posts as p
+                      WHERE rel.object_id=p.ID AND rel.term_taxonomy_id=".$term_id." AND p.post_type='".$post_type."' AND p.post_status='publish' ORDER BY p.menu_order ASC";
+            $results = $wpdb->get_results( $query, OBJECT );
+            $items = ($results) ? $results : '';
+            $args = array(
+                    'term_id'=>$term_id,
+                    'term_name'=>$term_name,
+                    'members'=>$items
+                );
+            $records[] = $args;
+        }
+    }
+     
+    return $records;
+}
