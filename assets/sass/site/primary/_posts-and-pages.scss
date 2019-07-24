@@ -1738,6 +1738,9 @@ h1.pagetoptitle {
 
 .team-group {
 	margin: 0 0 10px;
+	.flex-container {
+		@include flexbox-justify(center);
+	}
 }
 
 h2.teamcat {
