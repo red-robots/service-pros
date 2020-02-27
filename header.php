@@ -27,7 +27,7 @@
 
   gtag('config', 'UA-136611224-5');
 </script>
-
+<?php if( $customScripts = get_field("customHeaderScripts","option") ) { echo $customScripts; } ?>
 <?php wp_head(); ?>
 </head>
 
