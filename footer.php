@@ -22,7 +22,24 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
-<?php wp_footer(); ?>
+<?php 
 
+wp_footer(); 
+
+/*
+
+	Pop up function for the Customer service 
+
+*/
+$pop = get_field( 'popup_after_video' );
+if( $pop == 'show' ) {
+?>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			// Popup
+			
+		});
+	</script>
+<?php } ?>
 </body>
 </html>

@@ -20,6 +20,20 @@ function js_custom_init() {
             'supports'  => array('title','editor','thumbnail')
         ),
         array(
+            'post_type' => 'customer_service',
+            'menu_name' => 'Customer Services',
+            'plural'    => 'Customer Services',
+            'single'    => 'Customer Service',
+            'supports'  => array('title','editor','thumbnail')
+        ),
+        array(
+            'post_type' => 'store_service',
+            'menu_name' => 'Store Services',
+            'plural'    => 'Store Services',
+            'single'    => 'Store Service',
+            'supports'  => array('title','editor','thumbnail')
+        ),
+        array(
             'post_type' => 'career',
             'menu_name' => 'Careers',
             'plural'    => 'Careers',
