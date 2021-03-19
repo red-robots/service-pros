@@ -64,7 +64,7 @@ if (isset($_GET['d'])) {
 					$vidId = $arr[0];
 			    	$sani = sanitize_title_with_dashes( get_the_title() );
 			    	// build the link for the single-customer_service.php check.
-					$link = get_the_permalink() . '/?email=' . $email . '&d=' . $date;
+					$link = get_the_permalink() . '?email=' . $email . '&d=' . $date;
 			    	?>
 			    		<div class="service" >
 							<div class="inner clear">
