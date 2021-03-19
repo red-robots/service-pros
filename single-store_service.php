@@ -26,7 +26,7 @@ $urls = get_field('store_service_videos_message_link', 'option');
 // echo "<br>";
 // echo $urls;
 // build the link for the single-customer_service.php check.
-$link = $url . '/?email=' . $email . '&d=' . $date;
+$link = $url . '?email=' . $email . '&d=' . $date;
 
 
 
