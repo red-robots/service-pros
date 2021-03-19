@@ -14,7 +14,8 @@
 
 get_header(); 
 // go back url
-$url = get_bloginfo('url').'/services/store-services';
+// $url = get_bloginfo('url').'/services/store-services';
+$url = get_field('store_service_videos_link', 'option');
 // check by today's date
 $date = date('m/d/Y');
 // get url variables
@@ -90,7 +91,16 @@ if (isset($_GET['d'])) {
 <?php
 	else: ?>
 		<div class="missing">
-		Looks like either your link has expired or you need to go input your email to view this page. <a href="<?php echo $url; ?>">Please visit here.</a>
+			<?php 
+			$message = get_field('store_service_videos_message', 'option'); 
+			$messageLink = get_field('store_service_videos_message_link', 'option'); 
+			if( $message) { echo '<div class="mess">'.$message.'</div>'; }
+			?> 
+			<?php if( $messageLink ) { ?>
+				<div class="bbutton">
+					<a href="<?php echo $messageLink; ?>">Please visit here.</a>
+				</div>
+			<?php } ?>
 		</div>
 <?php	endif; ?>
 

@@ -19,9 +19,18 @@ if (isset($_GET['email'])) {
 if (isset($_GET['d'])) {
 	$date = $_GET['d'];
 }
-$url = get_bloginfo('url').'/services/store-services/store-service-videos/';
+// $url = get_bloginfo('url').'/services/store-services/store-service-videos/';
+$url = get_field('store_service_videos_link', 'option');
+$urls = get_field('store_service_videos_message_link', 'option');
+// echo $url;
+// echo "<br>";
+// echo $urls;
 // build the link for the single-customer_service.php check.
 $link = $url . '/?email=' . $email . '&d=' . $date;
+
+
+
+	if( $_GET['d'] == $date ) :
 ?>
 
 <div id="primary" class="full-content-area wrapper articles-wrapper single-post clear">
@@ -129,6 +138,20 @@ $link = $url . '/?email=' . $email . '&d=' . $date;
 </section>
 
 </div><!-- #primary -->
-
+<?php
+	else: ?>
+		<div class="missing">
+			<?php 
+			$message = get_field('store_service_videos_message', 'option'); 
+			$messageLink = get_field('store_service_videos_message_link', 'option'); 
+			if( $message) { echo '<div class="mess">'.$message.'</div>'; }
+			?> 
+			<?php if( $messageLink ) { ?>
+				<div class="bbutton">
+					<a href="<?php echo $messageLink; ?>">Please visit here.</a>
+				</div>
+			<?php } ?>
+		</div>
+<?php	endif; ?>
 <?php
 get_footer();

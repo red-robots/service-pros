@@ -10,7 +10,7 @@
 // if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 // 	return;
 // }
-$link = get_bloginfo('url').'/services/customer-services/';
+$link = get_field('customer_services_video_link', 'option');
 ?>
 <aside id="secondary" class="widget-area" role="complementary">
 	<?php //dynamic_sidebar( 'sidebar-1' ); ?>
