@@ -166,6 +166,13 @@ function ii_custom_taxonomies() {
             'single'    => 'Team Category',
             'taxonomy'  => 'team_categories'
         ),
+        array(
+            'post_type' => 'store_service',
+            'menu_name' => 'Service Categories',
+            'plural'    => 'Service Categories',
+            'single'    => 'Service Category',
+            'taxonomy'  => 'service_categories'
+        ),
     );
     
     if($posts) {

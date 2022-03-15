@@ -41,5 +41,7 @@ if( $pop == 'show' ) {
 		});
 	</script>
 <?php } ?>
+<?php //get_template_part('inc/chat-footer'); ?>
+     <!-- <div id="chat-container" ></div> -->
 </body>
 </html>

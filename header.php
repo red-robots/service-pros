@@ -21,22 +21,62 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136611224-5"></script>
 <script src="http://www.youtube.com/player_api"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-136611224-5');
-</script>
+<?php //get_template_part('inc/chat-one'); ?>
+<script type="text/javascript" charset="utf-8">
+  (function (g, e, n, es, ys) {
+    g['_genesysJs'] = e;
+    g[e] = g[e] || function () {
+      (g[e].q = g[e].q || []).push(arguments)
+    };
+    g[e].t = 1 * new Date();
+    g[e].c = es;
+    ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+  })(window, 'Genesys', 'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
+    environment: 'usw2',
+    deploymentId: 'd97561dd-37fe-4ffd-8fe9-6d82a84cf7d7'
+  });</script>
 <?php if( $customScripts = get_field("customHeaderScripts","option") ) { echo $customScripts; } ?>
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+	
+
+
+
+
+
+<!-- <form id="chatForm">
+        <h3>Participant Information- local</h3>
+
+        <table class="webchat-config">
+            <tbody>
+                <tr>
+                    <th>First Name:</th>
+                    <td><input type="text" id="first-name" value="John" /></td>
+                </tr>
+                <tr>
+                    <th>Last Name:</th>
+                    <td><input type="text" id="last-name" value="Doe" /></td>
+                </tr>
+                <tr>
+                    <th>Agent Email:</th>
+                    <td><input type="text" id="agent-email" value="alex.agent@example.com" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" id="chat-button">Start Chat</button>
+    </form> -->
+   
+
+
+
+
 <div id="page" class="site clear">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'acstarter' ); ?></a>
 
 	<header id="masthead" class="site-header clear" role="banner">
+		
 		<div class="top-menu">
 			<?php wp_nav_menu( array( 'theme_location' => 'top' )); ?>
 		</div>		

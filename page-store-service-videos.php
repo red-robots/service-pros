@@ -44,10 +44,18 @@ if (isset($_GET['d'])) {
 				$wp_query->query(array(
 				'post_type'=>'store_service',
 				'posts_per_page' => 20,
-				'paged' => $paged
+				'paged' => $paged,
+				'facetwp' => true
 			));
 				if ($wp_query->have_posts()) : ?>
+					<div class="filter-wrapper" style="width: 100%;text-align: center;">
+						<span class="filter-title" style="font-weight: bold; display: inline-block;width: auto;font-size: 16px;">FILTER BY: </span>
+						<div class="filter" style="display: inline-block;width: auto;">
+							<?php echo do_shortcode('[facetwp facet="service_categories"]'); ?>
+						</div> 
+					</div>
 				<div class="services-wrapper">
+					
 			    <?php while ($wp_query->have_posts()) : $wp_query->the_post(); 
 
 			    	// get Oembed
@@ -102,7 +110,7 @@ if (isset($_GET['d'])) {
 				</div>
 			<?php } ?>
 		</div>
-<?php	endif; ?>
+<?php	endif; // jsut to make sure ?>
 
 <?php  
 get_footer();
