@@ -16,7 +16,8 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="wrapper">
 			<div class="site-info">
-				&copy; <?php echo date('Y') . ' '.get_bloginfo('name'); ?> Site by <a href="https://bellaworksweb.com">BW</a>
+				&copy; <?php echo date('Y') . ' '.get_bloginfo('name'); ?> | <a href="<?php bloginfo('url'); ?>/privacy-policy">Privacy Policy</a><br>
+				Site by <a href="https://bellaworksweb.com">BW</a>
 			</div><!-- .site-info -->
 	</div><!-- wrapper -->
 	</footer><!-- #colophon -->
