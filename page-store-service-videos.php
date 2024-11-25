@@ -73,13 +73,19 @@ if (isset($_GET['d'])) {
 			    	$sani = sanitize_title_with_dashes( get_the_title() );
 			    	// build the link for the single-customer_service.php check.
 					$link = get_the_permalink() . '?email=' . $email . '&d=' . $date;
+
+					$tile_thumbnail = get_field('tile_thumbnail');
 			    	?>
 			    		<div class="service" >
 							<div class="inner clear">
 								<a class="boxlink" href="<?php echo $link; ?>">
 								<!-- <a class="boxlink inline" href="#<?php echo $sani; ?>"> // for a lightbox option -->
 									<span class="service-title"><?php the_title();?></span>
-									<span class="bgimage" style="background-image:url('https://img.youtube.com/vi/<?php echo $vidId; ?>/hqdefault.jpg')" ></span>
+									<?php if( $tile_thumbnail ) { ?>
+										<span class="bgimage" style="background-image:url('<?php echo $tile_thumbnail['url']; ?>')" ></span>
+									<?php } else { ?>
+										<span class="bgimage" style="background-image:url('https://img.youtube.com/vi/<?php echo $vidId; ?>/hqdefault.jpg')" ></span>
+									<?php } ?>
 									<img src="https://img.youtube.com/vi/<?php echo $vidId; ?>/hqdefault.jpg" />
 								</a>
 							</div>
